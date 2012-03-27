@@ -11,6 +11,13 @@ end
 
 Then /^they should be able to make a proposal$/ do
   page.should have_content "Make a proposal"
+  click_link "Make a proposal"
+  page.should have_content "New proposal"
+  @proposal = FactoryGirl.attributes_for(:proposal)
+  fill_in 'Subject', :with => @proposal[:subject]
+  fill_in 'Body', :with => @proposal[:body]
+  click_button 'Create Proposal'
+  page.should have_content @proposal[:subject]
 end
 
 When /^there are proposals$/ do

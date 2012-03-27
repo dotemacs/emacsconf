@@ -19,7 +19,7 @@ end
 
 gem 'jquery-rails'
 
-group :test do
+group :development, :test do
   gem 'rspec-rails', '2.9.0'
   gem 'shoulda-matchers', '1.0.0'
   # database_cleaner is not required, but highly recommended

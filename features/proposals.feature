@@ -1,4 +1,4 @@
-Feature: Allow users to propse what they want to see at Emacs Conf
+Feature: Allow users to propose what they want to see at Emacs Conf
 
 
   Background:
@@ -8,6 +8,6 @@ Feature: Allow users to propse what they want to see at Emacs Conf
     When the user logs in
     Then they should be able to make a proposal
 
-  Scenario: The users should be able to vote on proposal
+  Scenario: Allow voting for talks
     When there are proposals
     Then the users should be able to vote on the proposals

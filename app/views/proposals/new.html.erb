@@ -1,2 +1,11 @@
-<h1>Proposals#new</h1>
-<p>Find me in app/views/proposals/new.html.erb</p>
+<h1>New proposal</h1>
+
+<%= form_for(@proposal) do |f| %>
+  <%= f.label :subject %><br />
+  <%= f.text_field :subject %><br />
+
+  <%= f.label :body %><br />
+  <%= f.text_area :body %><br />
+
+  <%= f.submit %>
+<% end %>

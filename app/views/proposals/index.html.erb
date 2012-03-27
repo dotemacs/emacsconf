@@ -2,5 +2,5 @@
 <p>Find me in app/views/proposals/index.html.erb</p>
 
 <% if user_signed_in? %>
-Make a proposal
+  <%= link_to  "Make a proposal", new_proposal_path %>
 <% end %>
