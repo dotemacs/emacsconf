@@ -19,13 +19,11 @@ end
 
 gem 'jquery-rails'
 
-group :test, :development do
+group :test do
   gem 'rspec-rails', '2.9.0'
   gem 'shoulda-matchers', '1.0.0'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'factory_girl_rails', '3.0.0'
+  gem 'cucumber-rails', '1.3.0'
 end
-
-# moved it out of the above block to suppress the error messages
-gem 'cucumber-rails', '1.3.0', :group => :test
