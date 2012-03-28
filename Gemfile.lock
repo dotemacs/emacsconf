@@ -86,6 +86,8 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    make_voteable (0.1.1)
+      activerecord (~> 3.0)
     mime-types (1.18)
     multi_json (1.2.0)
     nokogiri (1.5.2)
@@ -171,6 +173,7 @@ DEPENDENCIES
   devise (= 2.0.4)
   factory_girl_rails (= 3.0.0)
   jquery-rails
+  make_voteable (= 0.1.1)
   rails (= 3.2.2)
   rspec-rails (= 2.9.0)
   sass-rails (~> 3.2.3)

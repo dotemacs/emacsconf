@@ -76,5 +76,31 @@ describe ProposalsController do
     end
   end
 
+  describe "GET 'vote_up'" do
+    before do
+      User.destroy_all
+      Proposal.destroy_all
+      @user = FactoryGirl.create(:user)
+      sign_in @user
+    end
+
+    before :each do
+      Proposal.delete_all
+      @proposal = FactoryGirl.create(:proposal)
+    end
+
+    it "should up vote a proposal" do
+      @proposal.votes.should == 0
+      get :vote_up, :id => @proposal
+      @proposal.reload
+      @proposal.votes.should == 1
+    end
+
+    it "should show the proposal after up vote" do
+      get :vote_up, :id => @proposal
+      response.should redirect_to proposal_path(@proposal.id)
+    end
+
+  end
 
 end

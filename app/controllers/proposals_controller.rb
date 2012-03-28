@@ -21,4 +21,16 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.find(params[:id])
   end
 
+  def vote_up
+    @proposal = Proposal.find(params[:id])
+    current_user.up_vote!(@proposal)
+    redirect_to @proposal
+  end
+
+  def vote_down
+    @proposal = Proposal.find(params[:id])
+    current_user.down_vote!(@proposal)
+    redirect_to @proposal
+  end
+
 end

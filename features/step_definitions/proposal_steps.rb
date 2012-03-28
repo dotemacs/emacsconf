@@ -21,9 +21,13 @@ Then /^they should be able to make a proposal$/ do
 end
 
 When /^there are proposals$/ do
-  pending # express the regexp above with the code you wish you had
+  @proposal = FactoryGirl.create(:proposal)
+  visit proposal_path(@proposal)
 end
 
 Then /^the users should be able to vote on the proposals$/ do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content "Vote up"
+  page.should have_content "Vote down"
+  click_link "Vote up"
+  page.should have_content "Votes: 1"
 end
