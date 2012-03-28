@@ -41,10 +41,22 @@ Then /^any user should be able to view them$/ do
   page.should have_content @pro2.subject
 end
 
-Then /^only the signed up users should be able to add them$/ do
-  pending # express the regexp above with the code you wish you had
+But /^only the signed up users should be able to add them$/ do
+  click_link 'Sign out'
+  visit '/proposals/new'
+  page.should have_content "Sign in"
 end
 
 Then /^the signed in users should be able to comment on them$/ do
-  pending # express the regexp above with the code you wish you had
+  @pro = FactoryGirl.create(:proposal,
+                            :subject => "Emacs Lisp",
+                            :body => "Lambda")
+  comment = "I wish to see this talk presented"
+  visit proposal_path(@pro)
+  page.should have_content "Add comment"
+  click_link "Add comment"
+  fill_in 'comment_content', :with => comment
+  click_button 'Add the comment'
+  page.should have_content "Comment added, thank you for participating"
+  page.should have_content comment
 end

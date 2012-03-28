@@ -11,3 +11,14 @@
 
 <%= link_to "Vote up", vote_up_proposal_path(@proposal) %> |
 <%= link_to "Vote down", vote_down_proposal_path(@proposal) %><br />
+
+<%= link_to "Home", root_path %><br />
+
+<ul>
+<% @comments.each do |c| %>
+  <li>
+    <%= c.content %>
+  </li>
+<% end %>
+</ul>
+<%= link_to "Add comment", new_proposal_comment_path(@proposal) %> <br />

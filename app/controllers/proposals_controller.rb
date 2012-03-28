@@ -20,6 +20,7 @@ class ProposalsController < ApplicationController
 
   def show
     @proposal = Proposal.find(params[:id])
+    @comments = @proposal.comments
   end
 
   def vote_up
