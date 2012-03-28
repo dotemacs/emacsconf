@@ -31,3 +31,20 @@ Then /^the users should be able to vote on the proposals$/ do
   click_link "Vote up"
   page.should have_content "Votes: 1"
 end
+
+
+Then /^any user should be able to view them$/ do
+  @pro1 = FactoryGirl.create(:proposal)
+  @pro2 = FactoryGirl.create(:proposal, :subject => "Wonderfully Emacs")
+  visit '/'
+  page.should have_content @pro1.subject
+  page.should have_content @pro2.subject
+end
+
+Then /^only the signed up users should be able to add them$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^the signed in users should be able to comment on them$/ do
+  pending # express the regexp above with the code you wish you had
+end

@@ -4,3 +4,14 @@
 <% if user_signed_in? %>
   <%= link_to  "Make a proposal", new_proposal_path %>
 <% end %>
+
+<% @proposals.each do |pro| %>
+  <ul>
+    <li>
+      <b>
+        <%= pro.subject %>
+      </b>
+      <%= pro.body %>
+    </li>
+  </ul>
+<% end %>

@@ -11,3 +11,13 @@ Feature: Allow users to propose what they want to see at Emacs Conf
   Scenario: Allow voting for talks
     When there are proposals
     Then the users should be able to vote on the proposals
+
+  @list
+  Scenario: Proposal list
+    When there are proposals
+    Then any user should be able to view them
+    But only the signed up users should be able to add them
+
+  Scenario: Proposal discussion
+    When there are proposals
+    Then the signed in users should be able to comment on them
