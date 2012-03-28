@@ -10,7 +10,7 @@ describe ProposalsController do
   end
 
   describe "GET 'new'" do
-    describe "for non-signed-in users" do
+    context "for non-signed-in users" do
 
       before(:all) { User.delete_all }
 
@@ -20,7 +20,7 @@ describe ProposalsController do
       end
     end
 
-    describe "for signed-in users" do
+    context "for signed-in users" do
       before(:all) do
         User.delete_all
       end
@@ -44,7 +44,7 @@ describe ProposalsController do
       sign_in @user
     end
 
-    describe "for signed-in users" do
+    context "for signed-in users" do
       let(:attribs) { FactoryGirl.attributes_for(:proposal) }
       let(:proposal) { Proposal.where(:subject => attribs[:subject]).first }
 
