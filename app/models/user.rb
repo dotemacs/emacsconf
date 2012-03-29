@@ -9,5 +9,6 @@ class User < ActiveRecord::Base
 
   make_voter
 
+  has_many :proposals
   has_many :comments
 end

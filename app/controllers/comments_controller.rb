@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
   def create
     @proposal = Proposal.find(params[:proposal_id])
     @comment = @proposal.comments.new(params[:comment])
+    @comment.user_id = current_user
 
     if @comment.save
       flash[:success] = "Comment added, thank you for participating"

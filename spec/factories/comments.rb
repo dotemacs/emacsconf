@@ -2,8 +2,6 @@
 
 FactoryGirl.define do
   factory :comment do
-    user nil
-    proposal nil
     content "MyText"
   end
 end

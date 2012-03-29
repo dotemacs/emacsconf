@@ -12,7 +12,6 @@ Feature: Allow users to propose what they want to see at Emacs Conf
     When there are proposals
     Then the users should be able to vote on the proposals
 
-  @list
   Scenario: Proposal list
     When there are proposals
     Then any user should be able to view them

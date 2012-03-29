@@ -12,7 +12,7 @@ end
 Then /^they should be able to make a proposal$/ do
   page.should have_content "Make a proposal"
   click_link "Make a proposal"
-  page.should have_content "New proposal"
+  page.should have_content "NEW PROPOSAL"
   @proposal = FactoryGirl.attributes_for(:proposal)
   fill_in 'Subject', :with => @proposal[:subject]
   fill_in 'Body', :with => @proposal[:body]
@@ -59,4 +59,11 @@ Then /^the signed in users should be able to comment on them$/ do
   click_button 'Add the comment'
   page.should have_content "Comment added, thank you for participating"
   page.should have_content comment
+end
+
+When /^a user creates a proposal or a comment$/ do
+  visit root_path
+  click_link "Make a proposal"
+  "Then they should be able to make a proposal"
+  page.should have_content "Edit proposal"
 end

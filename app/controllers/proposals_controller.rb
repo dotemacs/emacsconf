@@ -6,11 +6,12 @@ class ProposalsController < ApplicationController
   end
 
   def new
-    @proposal = Proposal.new
+    @proposal = current_user.proposals.new
   end
 
   def create
-    @proposal = Proposal.new(params[:proposal])
+    @proposal = current_user.proposals.new(params[:proposal])
+
     if @proposal.save
       redirect_to @proposal
     else

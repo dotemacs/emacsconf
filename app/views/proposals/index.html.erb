@@ -5,18 +5,19 @@
 |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 </pre>
 
-<h3>Proposals</h3>
+<br />
+<br />
+<br />
+<div class='title'>
+» PROPOSALS «
+</div>
 
 <% if user_signed_in? %>
   <%= link_to  "Make a proposal", new_proposal_path %>
 <% end %>
 
+<br />
 <% @proposals.each do |pro| %>
-  <ul>
-    <li>
-      <b>
-        <%= link_to pro.subject, proposal_path(pro) %>
-      </b>
-    </li>
-  </ul>
+  * <%= link_to pro.subject, proposal_path(pro) %>
+  <br />
 <% end %>

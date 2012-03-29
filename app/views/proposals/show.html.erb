@@ -1,19 +1,20 @@
-<h1>Proposal</h1>
 
-<b>Votes: </b><%= @proposal.votes %><br />
+<br />
 
-<b>Subject:</b><br />
-<%= @proposal.subject %><br />
 
-<b>Body:</b><br />
+<h3><%= @proposal.subject %></h3>
+<b>Votes:</b> <%= @proposal.votes %><br />
+
 <%= @proposal.body %><br />
-
 
 <%= link_to "Vote up", vote_up_proposal_path(@proposal) %> |
 <%= link_to "Vote down", vote_down_proposal_path(@proposal) %><br />
 
 <%= link_to "Home", root_path %><br />
 
+<br />
+<b>Comments:</b>
+<br />
 <ul>
 <% @comments.each do |c| %>
   <li>
