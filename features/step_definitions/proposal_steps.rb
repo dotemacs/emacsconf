@@ -37,12 +37,12 @@ Then /^any user should be able to view them$/ do
   @pro1 = FactoryGirl.create(:proposal)
   @pro2 = FactoryGirl.create(:proposal, :subject => "Wonderfully Emacs")
   visit '/'
+  click_link 'Sign out'
   page.should have_content @pro1.subject
   page.should have_content @pro2.subject
 end
 
 But /^only the signed up users should be able to add them$/ do
-  click_link 'Sign out'
   visit '/proposals/new'
   page.should have_content "Sign in"
 end

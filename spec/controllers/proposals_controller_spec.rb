@@ -61,18 +61,33 @@ describe ProposalsController do
   end # POST create
 
   describe "GET 'show'" do
-    before do
-      User.destroy_all
-      Proposal.destroy_all
-      @user = FactoryGirl.create(:user)
-      sign_in @user
+    context "for non-signed-in users" do
+      before do
+        User.destroy_all
+      end
+
+      let(:proposal) { FactoryGirl.create(:proposal) }
+
+      it "should show the proposal" do
+        get :show, :id => proposal
+        response.should be_success
+      end
     end
 
-    let(:proposal) { FactoryGirl.create(:proposal) }
+    context "for signed-in users" do
+      before do
+        User.destroy_all
+        Proposal.destroy_all
+        @user = FactoryGirl.create(:user)
+        sign_in @user
+      end
 
-    it "should show a proposal" do
-      get :show, :id => proposal
-      response.should be_success
+      let(:proposal) { FactoryGirl.create(:proposal) }
+
+      it "should show the proposal" do
+        get :show, :id => proposal
+        response.should be_success
+      end
     end
   end
 
