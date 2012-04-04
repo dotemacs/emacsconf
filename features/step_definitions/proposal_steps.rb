@@ -17,7 +17,7 @@ Then /^they should be able to make a proposal$/ do
   fill_in 'Subject', :with => @proposal[:subject]
   fill_in 'Body', :with => @proposal[:body]
   click_button 'Create Proposal'
-  page.should have_content @proposal[:subject]
+  page.should have_content @proposal[:subject].upcase
 end
 
 When /^there are proposals$/ do
@@ -29,7 +29,7 @@ Then /^the users should be able to vote on the proposals$/ do
   page.should have_content "Vote up"
   page.should have_content "Vote down"
   click_link "Vote up"
-  page.should have_content "Votes: 1"
+  page.should have_content "votes: 1"
 end
 
 
@@ -53,8 +53,7 @@ Then /^the signed in users should be able to comment on them$/ do
                             :body => "Lambda")
   comment = "I wish to see this talk presented"
   visit proposal_path(@pro)
-  page.should have_content "Add comment"
-  click_link "Add comment"
+  page.should have_content "Contribute with your opinion:"
   fill_in 'comment_content', :with => comment
   click_button 'Add the comment'
   page.should have_content "Comment added, thank you for participating"

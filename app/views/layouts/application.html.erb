@@ -15,11 +15,21 @@
   <%= link_to('Sign in', new_user_session_path) %>
   <% end %>
 
+  <pre>
+   ____ ____ ____ ____ ____ ____ ____ ____ ____
+  ||E |||M |||A |||C |||S |||C |||O |||N |||F ||
+  ||__|||__|||__|||__|||__|||__|||__|||__|||__||
+  |/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
+  </pre>
+
+
   <% flash.each do |key, value| %>
     <%= content_tag(:div, value, :class => "flash #{key}") %>
   <% end %>
 
-  <%= yield %>
+  <div class="content">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

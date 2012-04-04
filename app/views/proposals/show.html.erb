@@ -1,25 +1,35 @@
 
-<br />
+<div class="title">
+» <%= @proposal.subject.upcase %> «
+</div>
 
+<div class="heading">
+  <b>votes:</b> <%= @proposal.votes %>
+</div>
 
-<h3><%= @proposal.subject %></h3>
-<b>Votes:</b> <%= @proposal.votes %><br />
-
-<%= @proposal.body %><br />
+<div class="proposal">
+<%= @proposal.body %>
+</div>
 
 <%= link_to "Vote up", vote_up_proposal_path(@proposal) %> |
-<%= link_to "Vote down", vote_down_proposal_path(@proposal) %><br />
-
+<%= link_to "Vote down", vote_down_proposal_path(@proposal) %> |
 <%= link_to "Home", root_path %><br />
 
-<br />
-<b>Comments:</b>
-<br />
-<ul>
-<% @comments.each do |c| %>
-  <li>
-    <%= c.content %>
-  </li>
-<% end %>
-</ul>
-<%= link_to "Add comment", new_proposal_comment_path(@proposal) %> <br />
+<div class="comments">
+  <div class="heading">
+  COMMENTS:
+  </div>
+
+  <% @comments.each do |c| %>
+    * <%= c.content %>
+    <br />
+  <% end %>
+  <%#= link_to "Add comment", new_proposal_comment_path(@proposal) %> <br />
+
+
+  Contribute with your opinion:
+  <%= form_for [@proposal, @new_comment] do |f| %>
+    <%= f.text_area :content, :size => "40x10" %>
+    <%= f.submit "Add the comment" %>
+  <% end %>
+</div>

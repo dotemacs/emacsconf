@@ -1,3 +1,34 @@
 // Place all the styles related to the Proposals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.content {
+  width: 400px;
+  padding: 10px 0 0 20px;
+}
+
+.title {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.heading {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.proposal {
+  padding-bottom: 20px;
+}
+
+.comments {
+  padding-top: 20px;
+}
+
+textarea {
+  border-style: dashed;
+}
+
+input {
+  border: 1px dashed;
+}

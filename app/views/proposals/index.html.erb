@@ -1,23 +1,16 @@
-<pre>
- ____ ____ ____ ____ ____ ____ ____ ____ ____
-||E |||M |||A |||C |||S |||C |||O |||N |||F ||
-||__|||__|||__|||__|||__|||__|||__|||__|||__||
-|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
-</pre>
 
-<br />
-<br />
-<br />
-<div class='title'>
+<div class="title">
 » PROPOSALS «
 </div>
-
-<% if user_signed_in? %>
-  <%= link_to  "Make a proposal", new_proposal_path %>
-<% end %>
+<br />
 
 <br />
 <% @proposals.each do |pro| %>
   * <%= link_to pro.subject, proposal_path(pro) %>
   <br />
+<% end %>
+
+<br />
+<% if user_signed_in? %>
+  <%= link_to  "Make a proposal", new_proposal_path %>
 <% end %>
