@@ -21,15 +21,17 @@
   </div>
 
   <% @comments.each do |c| %>
-    * <%= c.content %>
     <br />
+    <b><%= c.user.name %></b>:
+    <%= c.content %>
   <% end %>
   <%#= link_to "Add comment", new_proposal_comment_path(@proposal) %> <br />
 
-
+  <p>
   Contribute with your opinion:
   <%= form_for [@proposal, @new_comment] do |f| %>
     <%= f.text_area :content, :size => "40x10" %>
     <%= f.submit "Add the comment" %>
   <% end %>
+  </p>
 </div>

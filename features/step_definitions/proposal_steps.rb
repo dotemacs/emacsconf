@@ -66,3 +66,20 @@ When /^a user creates a proposal or a comment$/ do
   "Then they should be able to make a proposal"
   page.should have_content "Edit proposal"
 end
+
+When /^there is a proposal with a comment$/ do
+  visit '/'
+  click_link "Make a proposal"
+  fill_in 'Subject', :with => "Emacs sentience"
+  fill_in 'Body', :with => "I want to think and it should be"
+  click_button 'Create Proposal'
+  @comment_string = "Great, I want to see this"
+  fill_in 'comment_content', :with => @comment_string
+  click_button 'Add the comment'
+  page.should have_content @comment_string
+end
+
+Then /^it should show who made the comment$/ do
+  @comment = Comment.where(:content => @comment_string).first
+  page.should have_content @comment.user.name
+end
