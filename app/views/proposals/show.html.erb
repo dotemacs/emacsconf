@@ -29,9 +29,14 @@
 
   <p>
   Contribute with your opinion:
-  <%= form_for [@proposal, @new_comment] do |f| %>
-    <%= f.text_area :content, :size => "40x10" %>
-    <%= f.submit "Add the comment" %>
+  <% if user_signed_in? %>
+    <%= form_for [@proposal, @new_comment] do |f| %>
+      <%= f.text_area :content, :size => "40x10" %>
+      <%= f.submit "Add the comment" %>
+    <% end %>
+  <% else %>
+    by <%= link_to('signing in', new_user_session_path) %>
+  or <%= link_to('signing up', new_user_registration_path) %>
   <% end %>
   </p>
 </div>
