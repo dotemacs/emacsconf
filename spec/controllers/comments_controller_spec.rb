@@ -6,6 +6,7 @@ describe CommentsController do
     before :each do
       User.destroy_all
       @user = FactoryGirl.create(:user)
+      @user.confirm!
       sign_in @user
     end
 

@@ -1,5 +1,6 @@
 When /^the users sign up$/ do
   @user = FactoryGirl.create(:user)
+  @user.confirm!
 end
 
 When /^the user logs in$/ do
@@ -21,7 +22,7 @@ Then /^they should be able to make a proposal$/ do
 end
 
 When /^there are proposals$/ do
-  @proposal = FactoryGirl.create(:proposal)
+  @proposal = FactoryGirl.create(:proposal, :user_id => @user)
   visit proposal_path(@proposal)
 end
 
@@ -50,7 +51,8 @@ end
 Then /^the signed in users should be able to comment on them$/ do
   @pro = FactoryGirl.create(:proposal,
                             :subject => "Emacs Lisp",
-                            :body => "Lambda")
+                            :body => "Lambda",
+                            :user_id => @user)
   comment = "I wish to see this talk presented"
   visit proposal_path(@pro)
   page.should have_content "Contribute with your opinion:"

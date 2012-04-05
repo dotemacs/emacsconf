@@ -30,7 +30,9 @@ describe ProposalsController do
       end
 
       it "should be successful" do
-        sign_in FactoryGirl.create(:user)
+        @user = FactoryGirl.create(:user)
+        @user.confirm!
+        sign_in @user
         get :new
         response.should be_success
       end
@@ -41,6 +43,7 @@ describe ProposalsController do
     before :each do
       User.destroy_all
       @user = FactoryGirl.create(:user)
+      @user.confirm!
       sign_in @user
     end
 
@@ -96,6 +99,7 @@ describe ProposalsController do
       User.destroy_all
       Proposal.destroy_all
       @user = FactoryGirl.create(:user)
+      @user.confirm!
       sign_in @user
     end
 
