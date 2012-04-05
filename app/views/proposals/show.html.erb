@@ -3,6 +3,14 @@
 » <%= @proposal.subject.upcase %> «
 </div>
 
+<div class="author">
+by
+  <b>
+   <%= @proposal.user.name %>
+  </b>
+</div>
+
+
 <div class="heading">
   <b>votes:</b> <%= @proposal.votes %>
 </div>

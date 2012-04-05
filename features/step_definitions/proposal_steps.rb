@@ -79,7 +79,9 @@ When /^there is a proposal with a comment$/ do
   page.should have_content @comment_string
 end
 
-Then /^it should show who made the comment$/ do
+Then /^it should show who made the proposal and the comment$/ do
+  @proposal = Proposal.where(:body => "I want to think and it should be").first
+  page.should have_content @proposal.user.name
   @comment = Comment.where(:content => @comment_string).first
   page.should have_content @comment.user.name
 end

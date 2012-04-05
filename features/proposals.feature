@@ -21,6 +21,6 @@ Feature: Allow users to propose what they want to see at Emacs Conf
     When there are proposals
     Then the signed in users should be able to comment on them
 
-  Scenario: Proposal comment users
+  Scenario: Proposal' and comment's owner
     When there is a proposal with a comment
-    Then it should show who made the comment
+    Then it should show who made the proposal and the comment
