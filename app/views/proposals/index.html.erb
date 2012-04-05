@@ -2,9 +2,13 @@
 <div class="title">
 » PROPOSALS «
 </div>
-<br />
 
-<br />
+<p>
+In order to make the potential Emacs Conf a conference for users,
+driven by user's wishes you can do so by making your proposal.
+</p>
+
+
 <% @proposals.each do |pro| %>
   * <%= link_to pro.subject, proposal_path(pro) %>
   <br />
