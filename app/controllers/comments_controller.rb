@@ -3,8 +3,8 @@ class CommentsController < ApplicationController
 
   def create
     @proposal = Proposal.find(params[:proposal_id])
-    @comment = @proposal.comments.new(params[:comment])
-    @comment.user_id = current_user
+    @comment = current_user.comments.new(params[:comment])
+    @comment.proposal_id = @proposal.id
 
     if @comment.save
       flash[:success] = "Comment added, thank you for participating"

@@ -22,7 +22,8 @@ Then /^they should be able to make a proposal$/ do
 end
 
 When /^there are proposals$/ do
-  @proposal = FactoryGirl.create(:proposal, :user_id => @user)
+  @proposal = @user.proposals.new(FactoryGirl.attributes_for(:proposal))
+  @proposal.save
   visit proposal_path(@proposal)
 end
 
@@ -49,10 +50,11 @@ But /^only the signed up users should be able to add them$/ do
 end
 
 Then /^the signed in users should be able to comment on them$/ do
-  @pro = FactoryGirl.create(:proposal,
-                            :subject => "Emacs Lisp",
-                            :body => "Lambda",
-                            :user_id => @user)
+  proposal_attr = FactoryGirl.attributes_for(:proposal,
+                                             :subject => "Emacs Lisp",
+                                             :body => "Lambda")
+  @pro = @user.proposals.new(proposal_attr)
+  @pro.save
   comment = "I wish to see this talk presented"
   visit proposal_path(@pro)
   page.should have_content "Contribute with your opinion:"
