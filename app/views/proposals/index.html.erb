@@ -1,4 +1,8 @@
 
+<i>"... there's this awesome tool that gets overlooked, like people have some
+amazing sword in their cupboard and instead hack away at zombies with
+spoons."</i> - <b>Nic Ferrier</b>
+
 <div class="title">
 » PROPOSALS «
 </div>
@@ -9,10 +13,17 @@ driven by user's wishes you can do so by making your proposal.
 </p>
 
 
+
 <% @proposals.each do |pro| %>
   * <%= link_to pro.subject, proposal_path(pro) %>
   <br />
 <% end %>
+
+<p>
+Remember: just by proposing something does <b>not</b> mean you have to
+present it.
+</p>
+
 
 <br />
 <%= link_to  "Make a proposal", new_proposal_path %>
