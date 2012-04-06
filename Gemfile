@@ -4,7 +4,6 @@ gem 'rails', '3.2.2'
 gem 'devise', '2.0.4'
 gem 'make_voteable', '0.1.1'
 
-gem 'sqlite3'
 gem 'pg'
 
 # Gems used only for assets and not required

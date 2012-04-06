@@ -210,5 +210,4 @@ DEPENDENCIES
   rspec-rails (= 2.9.0)
   sass-rails (~> 3.2.3)
   shoulda-matchers (= 1.0.0)
-  sqlite3
   uglifier (>= 1.0.3)
