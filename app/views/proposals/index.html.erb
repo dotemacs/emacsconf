@@ -3,6 +3,16 @@
 amazing sword in their cupboard and instead hack away at zombies with
 spoons."</i> - <b>Nic Ferrier</b>
 
+<p>
+  <b>Location:</b> most probably London, UK
+  <br />
+  <b>Cost:</b> non-profit
+  <br />
+  <b>When:</b> as soon there is enough presentations, a free/cheap
+  venue becomes available and the time slot is suitable to most
+  potential attendees
+</p>
+
 <div class="title">
 » PROPOSALS «
 </div>
@@ -11,8 +21,6 @@ spoons."</i> - <b>Nic Ferrier</b>
 In order to make the potential Emacs Conf a conference for users,
 driven by user's wishes you can do so by making your proposal.
 </p>
-
-
 
 <% @proposals.each do |pro| %>
   * <%= link_to pro.subject, proposal_path(pro) %>
@@ -27,3 +35,10 @@ present it.
 
 <br />
 <%= link_to  "Make a proposal", new_proposal_path %>
+
+<p>
+Hats off to Hacker News crowd for making it #1 story:
+<a href="http://news.ycombinator.com/item?id=3816383">
+  <img src="http://ycombinator.com/images/y18.gif"
+       height="18" style="border:1px #ffffff solid;"></a>
+</p>
