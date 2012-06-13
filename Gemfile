@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.2'
+gem 'rails', '3.2.6'
 gem 'devise', '2.0.4'
 gem 'make_voteable', '0.1.1'
 
 gem 'pg'
 
-gem 'thin', :group => :production
+gem 'unicorn', :group => :production
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,13 +23,13 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
-  gem 'rspec-rails', '2.9.0'
+  gem 'rspec-rails', '2.10.1'
   gem 'shoulda-matchers', '1.0.0'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'factory_girl_rails', '3.0.0'
-  gem 'cucumber-rails', '1.3.0'
   gem 'mailcatcher', '0.5.6'
 end
 
+gem 'cucumber-rails', '1.3.0', :group => :test
 gem 'email_spec', :group => :test
