@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.12'
 gem 'devise', '2.0.4'
 gem 'make_voteable', '0.1.1'
 
