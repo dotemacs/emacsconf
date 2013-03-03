@@ -11,6 +11,7 @@ When /^the user logs in$/ do
 end
 
 Then /^they should be able to make a proposal$/ do
+  visit '/proposals'
   page.should have_content "Make a proposal"
   click_link "Make a proposal"
   page.should have_content "NEW PROPOSAL"
@@ -40,6 +41,7 @@ Then /^any user should be able to view them$/ do
   @pro2 = FactoryGirl.create(:proposal, :subject => "Wonderfully Emacs")
   visit '/'
   click_link 'Sign out'
+  visit '/proposals'
   page.should have_content @pro1.subject
   page.should have_content @pro2.subject
 end
@@ -65,14 +67,14 @@ Then /^the signed in users should be able to comment on them$/ do
 end
 
 When /^a user creates a proposal or a comment$/ do
-  visit root_path
+  visit '/proposals'
   click_link "Make a proposal"
   "Then they should be able to make a proposal"
   page.should have_content "Edit proposal"
 end
 
 When /^there is a proposal with a comment$/ do
-  visit '/'
+  visit '/proposals'
   click_link "Make a proposal"
   fill_in 'Subject', :with => "Emacs sentience"
   fill_in 'Body', :with => "I want to think and it should be"

@@ -7,5 +7,7 @@ Emacsconf::Application.routes.draw do
     resources :comments
   end
 
-  root :to => 'proposals#index'
+  resources :home
+
+  root :to => 'home#index'
 end
